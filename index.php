@@ -1,3 +1,29 @@
+<?php
+$works = [
+  [
+    "name" => "Разработчик",
+    "dateStart" => "Январь 2015",
+    "dateEnd" => "Текущее время",
+    "description" => "Тут описание работы разработчиком тут описание работы разработчиком
+    тут описание работы разработчиком тут описание работы разработчиком",
+  ],
+  [
+    "name" => "Дворник",
+    "dateStart" => "Январь 2010",
+    "dateEnd" => "Январь 2015",
+    "description" => "Тут описание работы дворником тут описание работы дворником 
+    тут описание работы дворником тут описание работы дворником",
+  ],
+  [
+    "name" => "Главбух в газпроме",
+    "dateStart" => "Январь 2000",
+    "dateEnd" => "Январь 2010",
+    "description" => "Тут описание работы главбуха в газпроме тут описание работы главбуха в газпроме
+    тут описание работы главбуха в газпроме тут описание работы главбуха в газпроме",
+  ],
+]; 
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -84,13 +110,24 @@
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы</h2>
+        <?php for ($i = 0; $i < count($works); $i++): ?>
         <div class="w3-container">
-          <h5 class="w3-opacity"><b>Front End Developer </b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
+          <h5 class="w3-opacity"><b><?=$works[$i]['name'];?></b></h5>
+          <h6 class="w3-text-teal">
+            <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+            <?=$works[$i]['dateStart'];?> - 
+            <?php if ($i == 0):?>
+            <span class="w3-tag w3-teal w3-round">
+              <?=$works[$i]['dateEnd'];?>
+          </span>
+          <?php else:?>
+            <?=$works[$i]['dateEnd'];?>
+          <?php endif; ?>  
+          </h6>
+          <p><?=$works[$i]['description'];?></p>
           <hr>
         </div>
-        
+        <?php endfor; ?>
       </div>
 
       <div class="w3-container w3-card w3-white">
